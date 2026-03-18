@@ -61,4 +61,31 @@ describe("trimIndent", () => {
     const input = "    a\n    b\n";
     expect(trimIndent(input)).toBe("a\nb\n");
   });
+
+  it("returns trimmed copy without mutating input", () => {
+    const input = "        if (isReady) {\n          doStuff();\n        }";
+    const inputCopy = input;
+    const trimmed = trimIndent(input);
+
+    expect(trimmed).toBe("if (isReady) {\n  doStuff();\n}");
+    expect(input).toBe(inputCopy);
+  });
+
+  it("handles mixed indent depths for copy-trimmed use case", () => {
+    const input = [
+      "      const x = 1;",
+      "      if (x) {",
+      "        return x;",
+      "      }",
+    ].join("\n");
+
+    const expected = [
+      "const x = 1;",
+      "if (x) {",
+      "  return x;",
+      "}",
+    ].join("\n");
+
+    expect(trimIndent(input)).toBe(expected);
+  });
 });

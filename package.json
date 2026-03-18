@@ -3,7 +3,7 @@
   "displayName": "Trim Indent",
   "description": "Remove common leading whitespace from selected text",
   "main": "./dist/extension.js",
-  "version": "1.0.1",
+  "version": "1.1.0",
   "publisher": "prberg",
   "repository": {
     "type": "git",
@@ -18,7 +18,8 @@
     "vscode"
   ],
   "activationEvents": [
-    "onCommand:extension.trimIndent"
+    "onCommand:extension.trimIndent",
+    "onCommand:extension.copyTrimmed"
   ],
   "categories": [
     "Formatters"
@@ -28,6 +29,10 @@
       {
         "command": "extension.trimIndent",
         "title": "Trim Indent"
+      },
+      {
+        "command": "extension.copyTrimmed",
+        "title": "Copy Trimmed"
       }
     ]
   },

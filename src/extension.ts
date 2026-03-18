@@ -2,7 +2,7 @@ import * as vscode from "vscode";
 import { trimIndent } from "./trim-indent";
 
 export function activate(context: vscode.ExtensionContext): void {
-  const command = vscode.commands.registerCommand("extension.trimIndent", () => {
+  const trimCommand = vscode.commands.registerCommand("extension.trimIndent", () => {
     const editor = vscode.window.activeTextEditor;
     if (!editor) { return; }
 
@@ -20,7 +20,22 @@ export function activate(context: vscode.ExtensionContext): void {
     });
   });
 
-  context.subscriptions.push(command);
+  const copyTrimmedCommand = vscode.commands.registerCommand("extension.copyTrimmed", async () => {
+    const editor = vscode.window.activeTextEditor;
+    if (!editor) { return; }
+
+    const selection = editor.selection;
+    if (selection.isEmpty) {
+      vscode.window.showInformationMessage("Select text to copy trimmed.");
+      return;
+    }
+
+    const text = editor.document.getText(selection);
+    const trimmed = trimIndent(text);
+    await vscode.env.clipboard.writeText(trimmed);
+  });
+
+  context.subscriptions.push(trimCommand, copyTrimmedCommand);
 }
 
 // biome-ignore lint/suspicious/noEmptyBlockStatements: required by VS Code extension API
