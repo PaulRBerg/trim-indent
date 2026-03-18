@@ -14,9 +14,13 @@ fills that gap.
 
 1. Select indented text in the editor
 2. Open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`)
-3. Run **Trim Indent**
+3. Run one of the commands below
 
-### Before
+### Trim Indent
+
+Replaces the selection in-place with the trimmed text.
+
+#### Before
 
 ```
         if (isReady) {
@@ -27,7 +31,7 @@ fills that gap.
         }
 ```
 
-### After
+#### After
 
 ```
 if (isReady) {
@@ -38,7 +42,7 @@ if (isReady) {
 }
 ```
 
-### Behavior
+#### Behavior
 
 - Finds the minimum leading whitespace shared by all non-empty lines
 - Removes exactly that amount from each line
@@ -46,9 +50,16 @@ if (isReady) {
 - Works with both spaces and tabs
 - If nothing is selected, shows a friendly message
 
+### Trim Indent and Copy
+
+Applies the same trimming logic as **Trim Indent** but copies the result to the clipboard instead of replacing the
+selection. The editor is left unchanged. Useful for pasting dedented code into documentation, chat, or another file.
+
 ## 📦 Installation
 
 ### VS Code / Cursor
+
+Install from the [VS Code Marketplace](https://marketplace.visualstudio.com/items?itemName=prberg.trim-indent), or run:
 
 ```bash
 ext install prberg.trim-indent
