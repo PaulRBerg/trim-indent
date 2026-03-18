@@ -3,8 +3,12 @@
   "displayName": "Trim Indent",
   "description": "Remove common leading whitespace from selected text",
   "main": "./dist/extension.js",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "publisher": "prberg",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/PaulRBerg/trim-indent"
+  },
   "license": "MIT",
   "keywords": [
     "dedent",
