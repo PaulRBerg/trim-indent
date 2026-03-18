@@ -71,6 +71,26 @@ Or search for "Trim Indent" in the Extensions sidebar.
 
 Available on [Open VSX Registry](https://open-vsx.org/extension/prberg/trim-indent).
 
+### Custom Keybinding
+
+By default, the commands are available through the Command Palette. To bind **Trim Indent and Copy** to a keyboard
+shortcut:
+
+1. Open the Keyboard Shortcuts editor (`Cmd+K Cmd+S` on macOS, `Ctrl+K Ctrl+S` on Windows/Linux)
+2. Click the **Open Keyboard Shortcuts (JSON)** icon in the top-right corner
+3. Add the following entry to `keybindings.json`:
+
+```jsonc
+{
+  "key": "ctrl+shift+c",
+  "command": "extension.copyTrimmed",
+  "when": "editorTextFocus && editorHasSelection"
+}
+```
+
+This overrides the default copy shortcut with a trim-and-copy when text is selected. The regular `Ctrl+C` / `Cmd+C`
+still works for copying without trimming.
+
 ## 🛠️ Development
 
 ```bash
