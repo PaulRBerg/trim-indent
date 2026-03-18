@@ -4,7 +4,7 @@ import { trimIndent } from "./trim-indent";
 export function activate(context: vscode.ExtensionContext): void {
   const command = vscode.commands.registerCommand("extension.trimIndent", () => {
     const editor = vscode.window.activeTextEditor;
-    if (!editor) return;
+    if (!editor) { return; }
 
     const selection = editor.selection;
     if (selection.isEmpty) {
@@ -23,4 +23,5 @@ export function activate(context: vscode.ExtensionContext): void {
   context.subscriptions.push(command);
 }
 
+// biome-ignore lint/suspicious/noEmptyBlockStatements: required by VS Code extension API
 export function deactivate(): void {}

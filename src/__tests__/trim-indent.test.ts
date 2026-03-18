@@ -5,18 +5,18 @@ describe("trimIndent", () => {
   it("removes common leading whitespace", () => {
     const input = [
       "        if (isReady) {",
-      "          console.log(\"Start\");",
+      '          console.log("Start");',
       "          if (hasWarnings) {",
-      "            console.warn(\"Warnings detected\");",
+      '            console.warn("Warnings detected");',
       "          }",
       "        }",
     ].join("\n");
 
     const expected = [
       "if (isReady) {",
-      "  console.log(\"Start\");",
+      '  console.log("Start");',
       "  if (hasWarnings) {",
-      "    console.warn(\"Warnings detected\");",
+      '    console.warn("Warnings detected");',
       "  }",
       "}",
     ].join("\n");
