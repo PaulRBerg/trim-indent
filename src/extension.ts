@@ -26,7 +26,7 @@ export function activate(context: vscode.ExtensionContext): void {
 
     const selection = editor.selection;
     if (selection.isEmpty) {
-      vscode.window.showInformationMessage("Select text to copy trimmed.");
+      vscode.window.showInformationMessage("Select text to trim indent and copy.");
       return;
     }
 
